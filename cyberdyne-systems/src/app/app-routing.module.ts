@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PageNotFoundComponent} from "./shared/page-not-found/page-not-found.component";
+import {PageNotFoundComponent} from "./mShared/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: "full",
-    loadChildren: () => import('./home/home.module').then(m=>m.HomeModule)
+    loadChildren: () => import('./mHomepage/homepage.module').then(m=>m.HomepageModule)
   },
   {
     path: 'products',
-    loadChildren: () => import('./products/products.module').then(m=>m.ProductsModule)
+    loadChildren: () => import('./mProducts/products.module').then(m=>m.ProductsModule)
   },
   {
     path: 'services',
-    loadChildren: () => import('./services/services.module').then(m=>m.ServicesModule)
+    loadChildren: () => import('./mCompanyServices/company-services.module').then(m=>m.CompanyServicesModule)
   },
   {path: 'company',
-    loadChildren: () => import('./company/company.module').then(m=>m.CompanyModule)
+    loadChildren: () => import('./mCompanyInfo/company-info.module').then(m=>m.CompanyInfoModule)
   },
   {path: 'support',
-    loadChildren: () => import('./support/support.module').then(m=>m.SupportModule)
+    loadChildren: () => import('./mCustomerSupport/customer-support.module').then(m=>m.CustomerSupportModule)
   },
   {
     path: '**',
