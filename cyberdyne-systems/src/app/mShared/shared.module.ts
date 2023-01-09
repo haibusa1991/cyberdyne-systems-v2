@@ -6,8 +6,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {RouterModule} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { LoadingSpinnerOverlayComponent } from './loading-spinner-overlay/loading-spinner-overlay.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { LoadingSpinnerComponentComponent } from './loading-spinner-component/loading-spinner-component.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    LoadingOverlayComponent
+    LoadingSpinnerOverlayComponent,
+    LoadingSpinnerComponentComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
   exports: [
     HeaderComponent,
     FooterComponent,
-    LoadingOverlayComponent,
+    LoadingSpinnerOverlayComponent,
+    LoadingSpinnerComponentComponent,
   ]
 })
 export class SharedModule { }

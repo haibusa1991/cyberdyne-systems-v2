@@ -1,0 +1,13 @@
+div {
+  height: 100px;
+  background: gray;
+
+  ul {
+    display: inline-block;
+
+    li {
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+}

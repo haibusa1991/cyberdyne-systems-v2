@@ -1,1 +1,8 @@
-<p>landing-page works!</p>
+<ng-container *ngIf="!contentHasLoaded">
+  <app-loading-spinner-component></app-loading-spinner-component>
+</ng-container>
+
+<ng-container *ngIf="contentHasLoaded">
+  <h2 class="dummy-content">Homepage</h2>
+  <app-open-close></app-open-close>
+</ng-container>

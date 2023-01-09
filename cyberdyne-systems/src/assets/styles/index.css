@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
+
+div#preloader {
+  display: block;
+}
+
+div.lds-ring {
+  display: block;
+  margin: 30vh auto 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 5vh;
+  padding:0 5vh;
+  font-family: Coda, sans-serif;
+  color: #d50004;
+}
+
+app-root {
+  display: none;
+}

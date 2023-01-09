@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-summary',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
+  contentHasLoaded: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    setTimeout(() => this.contentHasLoaded = true, 1000)
   }
 
 }

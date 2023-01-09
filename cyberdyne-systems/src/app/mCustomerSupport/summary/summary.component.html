@@ -1,1 +1,8 @@
-<p>summary works!</p>
+<ng-container *ngIf="!contentHasLoaded">
+  <app-loading-spinner-component></app-loading-spinner-component>
+</ng-container>
+
+<ng-container *ngIf="contentHasLoaded">
+  <h2 class="dummy-content">User area</h2>
+</ng-container>
+

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoadingOverlayComponent } from './loading-overlay.component';
+import { OpenCloseComponent } from './open-close.component';
 
-describe('LoadingSpinnerComponent', () => {
-  let component: LoadingOverlayComponent;
-  let fixture: ComponentFixture<LoadingOverlayComponent>;
+describe('OpenCloseComponent', () => {
+  let component: OpenCloseComponent;
+  let fixture: ComponentFixture<OpenCloseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadingOverlayComponent ]
+      declarations: [ OpenCloseComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LoadingOverlayComponent);
+    fixture = TestBed.createComponent(OpenCloseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

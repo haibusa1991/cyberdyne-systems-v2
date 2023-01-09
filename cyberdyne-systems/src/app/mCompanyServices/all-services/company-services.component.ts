@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-all-services',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-services.component.scss']
 })
 export class CompanyServicesComponent implements OnInit {
+  contentHasLoaded: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    setTimeout(() => this.contentHasLoaded = true, 1000)
   }
 
 }
