@@ -7,7 +7,8 @@ import { OpenCloseComponent } from './open-close/open-close.component';
 
 const routes: Routes = [{
   path: '',
-  component: HomepageComponent
+  component: HomepageComponent,
+  data: {animation:'homeFlyIn'}
 }];
 
 @NgModule({

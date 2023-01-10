@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {getSpinnerSize} from '../../Utils';
+import {getSpinnerSize} from '../../utils';
 
 @Component({
   selector: 'app-loading-spinner-component',
