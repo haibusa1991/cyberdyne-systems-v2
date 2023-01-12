@@ -6,7 +6,8 @@ import {SharedModule} from "../mShared/shared.module";
 
 const routes: Routes = [{
   path: '',
-  component: CompanyServicesComponent
+  component: CompanyServicesComponent,
+  data: {animationModuleName:'CompanyServices'}
 }];
 
 @NgModule({

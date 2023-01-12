@@ -10,7 +10,7 @@ export class CompanyInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(()=>this.contentHasLoaded=true,1000)
+    setTimeout(()=>this.contentHasLoaded=true)
   }
 
 }

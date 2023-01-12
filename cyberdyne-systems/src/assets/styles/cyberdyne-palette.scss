@@ -1,0 +1,36 @@
+$cyberdyne-materials-palette: (
+  50:#fee8e7,
+  100:#ffcabc,
+  200:#ffa690,
+  300:#ff8164,
+  400:#ff6042,
+  500:#ff3b21,
+  600:#ff351d,
+  700:#fb2c17,
+  800:#ed2211,
+  900:#d50004,
+  contrast: (
+    50:#000000,
+    100:#000000,
+    200:#000000,
+    300:#000000,
+    400:#000000,
+    500:#FFFFFF,
+    600:#FFFFFF,
+    700:#FFFFFF,
+    800:#FFFFFF,
+    900:#FFFFFF,
+  )
+);
+
+$cyberdyne-elements-palette: (
+  RED: map-get($cyberdyne-materials-palette,900),
+  DARK-RED: #a00505,
+  PINK: #ff6161,
+  DARK-GRAY: #636363,
+  LIGHT-GRAY: #EEEEEE,
+  WHITE: #FFFFFF,
+  GREEN: #357714
+);
+
+

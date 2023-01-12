@@ -9,6 +9,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { LoadingSpinnerOverlayComponent } from './loading-spinner-overlay/loading-spinner-overlay.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { LoadingSpinnerComponentComponent } from './loading-spinner-component/loading-spinner-component.component';
+import {MatRippleModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoadingSpinnerComponentComponent } from './loading-spinner-component/lo
     RouterModule,
     MatButtonModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRippleModule
   ],
   exports: [
     HeaderComponent,

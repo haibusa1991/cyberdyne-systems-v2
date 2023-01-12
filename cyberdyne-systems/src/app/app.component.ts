@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {ChildrenOutletContexts} from "@angular/router";
-import {homeFlyIn} from "./animations";
+import {mainRoutesAnimations} from "./animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    homeFlyIn
+    mainRoutesAnimations
   ]
 })
 export class AppComponent {
@@ -19,6 +19,6 @@ export class AppComponent {
   }
 
   getRouterAnimationData() {
-    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animationModuleName'];
   }
 }

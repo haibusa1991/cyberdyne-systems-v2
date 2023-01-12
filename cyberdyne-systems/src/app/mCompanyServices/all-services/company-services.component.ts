@@ -12,7 +12,7 @@ export class CompanyServicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.contentHasLoaded = true, 1000)
+    setTimeout(() => this.contentHasLoaded = true)
   }
 
 }

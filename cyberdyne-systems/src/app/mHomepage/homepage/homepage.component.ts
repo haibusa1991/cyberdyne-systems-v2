@@ -11,7 +11,7 @@ export class HomepageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(()=>this.contentHasLoaded=true,1)
+    setTimeout(()=>this.contentHasLoaded=true)
   }
 
 }

@@ -1,17 +1,20 @@
+@use './cyberdyne-palette' as palette;
+
+@import "buttons.scss";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
 @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-:root {
-  --color-red: #D50002;
-  --color-dark-red: #a00505;
-  --color-pink: #ff6161;
-  --color-dark-gray: #636363;
-  --color-light-gray: #EEEEEEFF;
-  --color-light-gray-transparent: #EEEEEE00;
-  --color-white: #FFFFFF;
-  --color-green: #357714;
+@font-face {
+  font-family: Gilroy;
+  src: url('/assets/fonts/Gilroy-Light.woff2');
+}
+@font-face {
+  font-family: GilroyBold;
+  src: url('/assets/fonts/Gilroy-ExtraBold.woff2');
+}
 
+:root {
   --element-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   --slow-transition: all 200ms ease-in-out;
   --fast-transition: all 150ms ease-in-out;
@@ -19,7 +22,7 @@
 
 h1, h2, h3 {
   font-family: Coda, sans-serif;
-  color: var(--color-red);
+  color: map-get(palette.$cyberdyne-elements-palette,RED);
   font-weight: 400;
 }
 
@@ -38,8 +41,13 @@ h3 {
 
 .dummy-content {
   display: block;
-  height: 500px;
+  height: 800px;
   background: cadetblue;
   color: wheat;
   text-align: center;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

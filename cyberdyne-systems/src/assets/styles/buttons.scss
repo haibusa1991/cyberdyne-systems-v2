@@ -1,0 +1,21 @@
+@import 'cyberdyne-palette.scss';
+
+.header-button {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  text-transform: uppercase;
+  background-color: map-get($cyberdyne-elements-palette, WHITE);
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  font-family: GilroyBold,sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: map-get($cyberdyne-elements-palette, DARK-GRAY);
+  border-radius: 5px;
+}
+
+.header-button:hover {
+  background-color: map-get($cyberdyne-elements-palette, LIGHT-GRAY);
+}
