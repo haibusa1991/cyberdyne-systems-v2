@@ -1,4 +1,4 @@
-@use './cyberdyne-palette' as palette;
+@use 'src/assets/styles/cyberdyne-palette' as palette;
 
 @import "buttons.scss";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
@@ -22,7 +22,7 @@
 
 h1, h2, h3 {
   font-family: Coda, sans-serif;
-  color: map-get(palette.$cyberdyne-elements-palette,RED);
+  color: map-get(palette.$elements-palette,RED);
   font-weight: 400;
 }
 

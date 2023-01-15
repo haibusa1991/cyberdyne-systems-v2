@@ -8,7 +8,13 @@ const routes: Routes = [{
   path: '',
   component: CompanyServicesComponent,
   data: {animationModuleName:'CompanyServices'}
-}];
+},
+  {
+    path: 'dummy', //todo remove me
+    component: CompanyServicesComponent,
+    // data: {animationModuleName: 'CompanyServices'}
+  }
+];
 
 @NgModule({
   declarations: [

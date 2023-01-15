@@ -1,9 +1,10 @@
 <div>
   <ul>
-    <li><a routerLink="" class="header-button" mat-ripple>home</a></li>
-    <li><a routerLink="products" class="header-button" mat-ripple>products</a></li>
-    <li><a routerLink="services" class="header-button" mat-ripple>services</a></li>
-    <li><a routerLink="company" class="header-button" mat-ripple>company</a></li>
-    <li><a routerLink="support" class="header-button" mat-ripple>support</a></li>
+<!--    todo remove ids-->
+    <li><a routerLink="" routerLinkActive="header-button-active" [routerLinkActiveOptions]="{exact:true}" class="header-button" mat-ripple  #homeButton>home</a></li>
+    <li><a routerLink="products" routerLinkActive="header-button-active" class="header-button" mat-ripple  #productsButton>products</a></li>
+    <li><a routerLink="services" routerLinkActive="header-button-active" class="header-button" mat-ripple #servicesButton>services</a></li>
+    <li><a routerLink="company" routerLinkActive="header-button-active" class="header-button" mat-ripple  #companyButton>company</a></li>
+    <li><a routerLink="support" routerLinkActive="header-button-active" class="header-button" mat-ripple  #supportButton>support</a></li>
   </ul>
 </div>

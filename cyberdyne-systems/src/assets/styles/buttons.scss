@@ -1,21 +1,38 @@
-@import 'cyberdyne-palette.scss';
+@use 'cyberdyne-palette' as palette;
 
-.header-button {
+%base-header-button {
   display: inline-block;
   width: 120px;
   height: 40px;
   text-transform: uppercase;
-  background-color: map-get($cyberdyne-elements-palette, WHITE);
   line-height: 40px;
   text-align: center;
   text-decoration: none;
   font-family: GilroyBold,sans-serif;
   font-weight: 500;
   letter-spacing: 0.2rem;
-  color: map-get($cyberdyne-elements-palette, DARK-GRAY);
   border-radius: 5px;
+  transition: background-color 250ms cubic-bezier(0, 0.5 ,0.6 ,1);
+}
+
+.header-button {
+  @extend %base-header-button;
+  background-color: map-get(palette.$elements-palette, WHITE);
+  color: map-get(palette.$elements-palette, DARK-GRAY);
 }
 
 .header-button:hover {
-  background-color: map-get($cyberdyne-elements-palette, LIGHT-GRAY);
+  background-color: map-get(palette.$elements-palette, MEDIUM-GRAY);
 }
+
+.header-button-active {
+  @extend %base-header-button;
+  background-color: map-get(palette.$elements-palette, RED);
+  color: map-get(palette.$elements-palette, WHITE);
+}
+
+.header-button-active:hover {
+  background-color: map-get(palette.$elements-palette, DARK-RED);
+}
+
+

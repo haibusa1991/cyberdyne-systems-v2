@@ -1,4 +1,4 @@
-$cyberdyne-materials-palette: (
+$materials-palette: (
   50:#fee8e7,
   100:#ffcabc,
   200:#ffa690,
@@ -23,12 +23,13 @@ $cyberdyne-materials-palette: (
   )
 );
 
-$cyberdyne-elements-palette: (
-  RED: map-get($cyberdyne-materials-palette,900),
+$elements-palette: (
+  RED: map-get($materials-palette,900),
   DARK-RED: #a00505,
   PINK: #ff6161,
   DARK-GRAY: #636363,
   LIGHT-GRAY: #EEEEEE,
+  MEDIUM-GRAY: #dcdcdc,
   WHITE: #FFFFFF,
   GREEN: #357714
 );

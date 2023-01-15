@@ -14,9 +14,9 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$cyberdyne-systems-primary: mat.define-palette(palette.$cyberdyne-materials-palette, 900);
-$cyberdyne-systems-selected: mat.define-palette(palette.$cyberdyne-materials-palette, 900);
-$cyberdyne-systems-accent: mat.define-palette(palette.$cyberdyne-materials-palette,50);
+$cyberdyne-systems-primary: mat.define-palette(palette.$materials-palette, 900);
+$cyberdyne-systems-selected: mat.define-palette(palette.$materials-palette, 900);
+$cyberdyne-systems-accent: mat.define-palette(palette.$materials-palette,50);
 
 // The warn palette is optional (defaults to red).
 $cyberdyne-systems-warn: mat.define-palette(mat.$indigo-palette);
