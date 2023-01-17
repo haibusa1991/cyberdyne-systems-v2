@@ -1,13 +1,45 @@
-div {
-  height: 100px;
-  background: gray;
+@use 'src/assets/styles/cyberdyne-palette' as pallette;
 
-  ul {
+
+#logo-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+
+  img {
     display: inline-block;
+    margin-top: 0.5rem;
+    width: 8.5rem;
+  }
 
-    li {
+  p {
+    display: inline-block;
+    position: absolute;
+    margin-top: 1rem;
+    vertical-align: middle;
+    font-family: Coda, sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    color: map-get(pallette.$elements-palette, WHITE);
+    line-height: 2rem;
+    transform: translateX(-2rem);
+  }
+}
+
+div#header {
+  height: 6.25rem;
+  background: map-get(pallette.$elements-palette, DARK-GRAY);
+
+  nav {
+    display: inline-block;
+    ul {
       display: inline-block;
-      padding: 10px;
+      li {
+        display: inline-block;
+        padding: 1.6rem;
+      }
     }
   }
 }

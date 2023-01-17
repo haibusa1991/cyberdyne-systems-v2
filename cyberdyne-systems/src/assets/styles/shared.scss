@@ -1,6 +1,8 @@
 @use 'src/assets/styles/cyberdyne-palette' as palette;
+@use 'src/assets/styles/responsive' as responsive;
 
-@import "buttons.scss";
+@import "buttons";
+
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css";
 @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
@@ -9,6 +11,7 @@
   font-family: Gilroy;
   src: url('/assets/fonts/Gilroy-Light.woff2');
 }
+
 @font-face {
   font-family: GilroyBold;
   src: url('/assets/fonts/Gilroy-ExtraBold.woff2');
@@ -22,7 +25,7 @@
 
 h1, h2, h3 {
   font-family: Coda, sans-serif;
-  color: map-get(palette.$elements-palette,RED);
+  color: map-get(palette.$elements-palette, RED);
   font-weight: 400;
 }
 
@@ -50,4 +53,36 @@ h3 {
 body {
   overflow-x: hidden;
   overflow-y: scroll;
+  //font-size: map-get(responsive.$font-sizes, MOBILE-SMALL);
+}
+
+@media screen and (width < map-get(responsive.$screen-sizes, MOBILE)) {
+  html {
+    font-size: map-get(responsive.$font-sizes, MOBILE);
+  }
+}
+
+
+@media screen and (width >= map-get(responsive.$screen-sizes, MOBILE)) {
+  html {
+    font-size: map-get(responsive.$font-sizes, TABLET);
+  }
+}
+
+@media screen and (width >= map-get(responsive.$screen-sizes, TABLET)) {
+  html {
+    font-size: map-get(responsive.$font-sizes, TABLET);
+  }
+}
+
+@media screen and (width >= map-get(responsive.$screen-sizes, LAPTOP)) {
+  html {
+    font-size: map-get(responsive.$font-sizes, LAPTOP);
+  }
+}
+
+@media screen and (width >= map-get(responsive.$screen-sizes, DESKTOP)) {
+  html {
+    font-size: map-get(responsive.$font-sizes, DESKTOP);
+  }
 }
