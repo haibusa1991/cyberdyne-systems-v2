@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {filter, take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-swipe-overlay',
@@ -9,133 +11,71 @@ export class SwipeOverlayComponent implements OnInit {
   private MAX_SWIPE_DURATION = 500; //swipe cannot be longer than this many milliseconds
   private MIN_SWIPE_DISTANCE = 60; //swipe must be at least this many pixels long
 
-  constructor() {
+  //list ot routes to navigate by swiping. First route is the leftmost
+  private navigationSequence: string[] = [
+    '/',          //0
+    '/products',  //1
+    '/services',  //2
+    '/company',   //3
+    '/support'];  //4
+  private currentRouteIndex!: number;
+
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+    ).subscribe(e => {
+      let url = (e as NavigationEnd).url;
+      this.currentRouteIndex = this.navigationSequence.indexOf(url);
+    });
   }
 
 
-  private lastTouch = {
+  private touchData = {
     startX: 0,
     startTime: 0,
     deltaX: 0,
     deltaTime: 0,
-    swipeEvent: undefined
   };
 
-  @HostListener('touchstart', ['$event'])
+  @HostListener('touchstart', ['$event','passive:true'])
   onTouchStart(event: TouchEvent) {
     let touch = event.touches[0]
-    // console.log('touch start')
-    console.log(this.lastTouch)
 
-    this.lastTouch.startX = touch.pageX;
-    this.lastTouch.deltaX = 0;
-
-    this.lastTouch.startTime = event.timeStamp;
-    this.lastTouch.deltaTime = 0;
-
-    // @ts-ignore
-    this.lastTouch.swipeEvent = event;
+    this.touchData.startX = touch.pageX;
+    this.touchData.startTime = event.timeStamp;
   }
 
-  @HostListener('touchend')
-  onTouchEnd() {
-    // console.log(`touch end`)
-    console.log(this.lastTouch)
-    // let touch = event.touches[0] || event.changedTouches[0];
-    let touch = this.lastTouch.swipeEvent;
+  @HostListener('touchend', ['$event'])
+  onTouchEnd(event: TouchEvent) {
+    let touch = event.changedTouches[0];
 
-    // @ts-ignore
-    // console.log(touch.pageX)
-    //@ts-ignore
-    // this.lastTouch.deltaX = touch.pageX - this.lastTouch.startX;
-    // @ts-ignore
-    // this.lastTouch.deltaTime = touch.timeStamp - this.lastTouch.startTime;
+    this.touchData.deltaX = touch.pageX - this.touchData.startX;
+    this.touchData.deltaTime = event.timeStamp - this.touchData.startTime;
+    this.onSwipe();
   }
 
   onSwipe() {
-    console.log('on swipe')
-    if (this.lastTouch.deltaTime > this.MAX_SWIPE_DURATION) {
-      console.log('swipe takes too long!')
+    if (
+      Math.abs(this.touchData.deltaX) > this.MIN_SWIPE_DISTANCE
+      && this.touchData.deltaTime < this.MAX_SWIPE_DURATION) {
+      this.touchData.deltaX > 0 ? this.navigateLeft() : this.navigateRight();
       return;
     }
-
-    if (this.lastTouch.deltaX > this.MIN_SWIPE_DISTANCE) {
-      let direction = this.lastTouch.deltaX > 0 ? 'right' : 'left';
-      console.log(`swiped ${direction}!`);
-    }
-
-    console.log('swipe too short!')
-
   }
 
+  navigateLeft() {
+    if (this.currentRouteIndex > 0) {
+      this.router.navigateByUrl(this.navigationSequence[this.currentRouteIndex - 1]);
+    }
+  }
 
-  //
-  // defaultTouch = {x: 0, y: 0, time: 0};
-  //
-  // @HostListener('touchstart', ['$event'])
-  // //@HostListener('touchmove', ['$event'])
-  // @HostListener('touchend', ['$event'])
-  // @HostListener('touchcancel', ['$event'])
-  // handleTouch(event:TouchEvent) {
-  //   let touch = event.touches[0] || event.changedTouches[0];
-  //
-  //   // check the events
-  //   if (event.type === 'touchstart') {
-  //     console.log('touch start')
-  //     this.defaultTouch.x = touch.pageX;
-  //     this.defaultTouch.y = touch.pageY;
-  //     this.defaultTouch.time = event.timeStamp;
-  //   }
-  //   else if (event.type === 'touchend') {
-  //
-  //   }
-  // }
-  //
-  // onTouchEnd(){
-  //   let deltaX = touch.pageX - this.defaultTouch.x;
-  //   let deltaY = touch.pageY - this.defaultTouch.y;
-  //   let deltaTime = event.timeStamp - this.defaultTouch.time;
-  //
-  //   // simulte a swipe -> less than 500 ms and more than 60 px
-  //   if (deltaTime < 500) {
-  //     // touch movement lasted less than 500 ms
-  //     if (Math.abs(deltaX) > 60) {
-  //       // delta x is at least 60 pixels
-  //       if (deltaX > 0) {
-  //         this.doSwipeRight(event);
-  //       } else {
-  //         this.doSwipeLeft(event);
-  //       }
-  //     }
-  //
-  //     if (Math.abs(deltaY) > 60) {
-  //       // delta y is at least 60 pixels
-  //       if (deltaY > 0) {
-  //         this.doSwipeDown(event);
-  //       } else {
-  //         this.doSwipeUp(event);
-  //       }
-  //     }
-  //   }
-  // }
-  //
-  // doSwipeLeft(event : TouchEvent) {
-  //   console.log('swipe left');
-  // }
-  //
-  // doSwipeRight(event : TouchEvent) {
-  //   console.log('swipe right');
-  // }
-  //
-  // doSwipeUp(event : TouchEvent) {
-  //   console.log('swipe up');
-  // }
-  //
-  // doSwipeDown(event : TouchEvent) {
-  //   console.log('swipe down');
-  // }
+  navigateRight() {
+    if (this.currentRouteIndex < this.navigationSequence.length - 1) {
+      this.router.navigateByUrl(this.navigationSequence[this.currentRouteIndex + 1]);
+    }
+  }
 }
 

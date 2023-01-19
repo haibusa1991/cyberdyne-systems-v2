@@ -1,18 +1,4 @@
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
-
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
-  NavigationEnd,
-  NavigationStart,
-  Route,
-  Router,
-  RouterEvent
-} from "@angular/router";
-import {filter, map} from "rxjs";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 
 @Component({
@@ -28,7 +14,9 @@ export class HeaderComponent implements OnInit {
   @ViewChild('companyButton') companyButton!: ElementRef;
   @ViewChild('supportButton') supportButton!: ElementRef;
 
-  constructor(private router: Router) {
+  isHamburgerMenuVisible = false;
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -50,8 +38,11 @@ export class HeaderComponent implements OnInit {
       '/support': this.supportButton
     };
 
-    Object.values(buttons).map(e=>e.nativeElement.classList.remove('header-button-active'));
+    Object.values(buttons).map(e => e.nativeElement.classList.remove('header-button-active'));
     buttons[activePage].nativeElement.classList.add('header-button-active');
   }
 
+  toggleHamburgerMenu() {
+    this.isHamburgerMenuVisible = !this.isHamburgerMenuVisible;
+  }
 }

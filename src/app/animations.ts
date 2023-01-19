@@ -1,5 +1,4 @@
 import {animate, animateChild, AnimationMetadata, group, query, style, transition, trigger} from "@angular/animations";
-import {HomepageComponent} from "./mHomepage/homepage/homepage.component";
 
 const TRANSITION_DURATION = 300 //ms
 

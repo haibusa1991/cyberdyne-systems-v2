@@ -50,10 +50,13 @@ h3 {
   text-align: center;
 }
 
+.clickable {
+  z-index: 100;
+}
+
 body {
   overflow-x: hidden;
   overflow-y: scroll;
-  //font-size: map-get(responsive.$font-sizes, MOBILE-SMALL);
 }
 
 @media screen and (width < map-get(responsive.$content-width, MOBILE)) {

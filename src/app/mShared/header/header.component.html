@@ -1,13 +1,14 @@
 <div id="content-wrapper">
   <div id="header">
     <a id="logo-container"
+       class="clickable"
        routerLink="">
       <img src="assets/shared/cyberdyne%20logo.svg" alt="Cyberdyne logo">
       <p>cyberdyne systems</p>
     </a>
 
     <nav>
-      <div id="full-nav">
+      <div id="full-nav" class="clickable">
         <ul role="list">
           <li><a routerLink=""
                  routerLinkActive="header-button-active"
@@ -36,6 +37,50 @@
           </li>
         </ul>
       </div>
+      <div id="mobile-nav" class="clickable">
+        <svg (click)="toggleHamburgerMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+        </svg>
+      </div>
     </nav>
+
+    <ng-container *ngIf="isHamburgerMenuVisible">
+      <div id="hamburger-menu" class="clickable">
+        <ul role="list">
+          <li><a routerLink=""
+                 routerLinkActive="header-button-active"
+                 [routerLinkActiveOptions]="{exact:true}"
+                 (click)="toggleHamburgerMenu()"
+                 class="header-button"
+                 mat-ripple>home</a></li>
+          <li><a routerLink="products"
+                 routerLinkActive="header-button-active"
+                 (click)="toggleHamburgerMenu()"
+                 class="header-button"
+                 mat-ripple>products</a>
+          </li>
+          <li><a routerLink="services"
+                 routerLinkActive="header-button-active"
+                 (click)="toggleHamburgerMenu()"
+                 class="header-button"
+                 mat-ripple>services</a>
+          </li>
+          <li><a routerLink="company"
+                 routerLinkActive="header-button-active"
+                 (click)="toggleHamburgerMenu()"
+                 class="header-button"
+                 mat-ripple>company</a>
+          </li>
+          <li><a routerLink="support"
+                 routerLinkActive="header-button-active"
+                 (click)="toggleHamburgerMenu()"
+                 class="header-button"
+                 mat-ripple>support</a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
   </div>
 </div>

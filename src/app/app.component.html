@@ -1,6 +1,7 @@
-<app-swipe-overlay></app-swipe-overlay>
-<app-header></app-header>
-<div [@routeAnimations]="getRouterAnimationData()">
-  <router-outlet></router-outlet>
+<div id="app-wrapper">
+  <app-swipe-overlay></app-swipe-overlay>
+  <app-header></app-header>
+  <div [@routeAnimations]="getRouterAnimationData()">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<app-footer></app-footer>
