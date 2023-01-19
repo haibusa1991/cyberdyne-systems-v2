@@ -10,6 +10,7 @@ import { LoadingSpinnerOverlayComponent } from './loading-spinner-overlay/loadin
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { LoadingSpinnerComponentComponent } from './loading-spinner-component/loading-spinner-component.component';
 import {MatRippleModule} from "@angular/material/core";
+import { SwipeOverlayComponent } from './swipe-overlay/swipe-overlay.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {MatRippleModule} from "@angular/material/core";
     FooterComponent,
     PageNotFoundComponent,
     LoadingSpinnerOverlayComponent,
-    LoadingSpinnerComponentComponent
+    LoadingSpinnerComponentComponent,
+    SwipeOverlayComponent
   ],
   imports: [
     CommonModule,
@@ -28,11 +30,12 @@ import {MatRippleModule} from "@angular/material/core";
     MatProgressSpinnerModule,
     MatRippleModule
   ],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    LoadingSpinnerOverlayComponent,
-    LoadingSpinnerComponentComponent,
-  ]
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        LoadingSpinnerOverlayComponent,
+        LoadingSpinnerComponentComponent,
+        SwipeOverlayComponent,
+    ]
 })
 export class SharedModule { }

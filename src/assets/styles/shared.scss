@@ -56,32 +56,32 @@ body {
   //font-size: map-get(responsive.$font-sizes, MOBILE-SMALL);
 }
 
-@media screen and (width < map-get(responsive.$screen-sizes, MOBILE)) {
+@media screen and (width < map-get(responsive.$content-width, MOBILE)) {
   html {
     font-size: map-get(responsive.$font-sizes, MOBILE);
   }
 }
 
 
-@media screen and (width >= map-get(responsive.$screen-sizes, MOBILE)) {
+@media screen and (width >= map-get(responsive.$content-width, MOBILE)) {
   html {
     font-size: map-get(responsive.$font-sizes, TABLET);
   }
 }
 
-@media screen and (width >= map-get(responsive.$screen-sizes, TABLET)) {
+@media screen and (width >= map-get(responsive.$content-width, TABLET)) {
   html {
     font-size: map-get(responsive.$font-sizes, TABLET);
   }
 }
 
-@media screen and (width >= map-get(responsive.$screen-sizes, LAPTOP)) {
+@media screen and (width >= map-get(responsive.$content-width, LAPTOP)) {
   html {
     font-size: map-get(responsive.$font-sizes, LAPTOP);
   }
 }
 
-@media screen and (width >= map-get(responsive.$screen-sizes, DESKTOP)) {
+@media screen and (width >= map-get(responsive.$content-width, DESKTOP)) {
   html {
     font-size: map-get(responsive.$font-sizes, DESKTOP);
   }

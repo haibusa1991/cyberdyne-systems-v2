@@ -1,0 +1,41 @@
+<div id="content-wrapper">
+  <div id="header">
+    <a id="logo-container"
+       routerLink="">
+      <img src="assets/shared/cyberdyne%20logo.svg" alt="Cyberdyne logo">
+      <p>cyberdyne systems</p>
+    </a>
+
+    <nav>
+      <div id="full-nav">
+        <ul role="list">
+          <li><a routerLink=""
+                 routerLinkActive="header-button-active"
+                 [routerLinkActiveOptions]="{exact:true}"
+                 class="header-button"
+                 mat-ripple>home</a></li>
+          <li><a routerLink="products"
+                 routerLinkActive="header-button-active"
+                 class="header-button"
+                 mat-ripple>products</a>
+          </li>
+          <li><a routerLink="services"
+                 routerLinkActive="header-button-active"
+                 class="header-button"
+                 mat-ripple>services</a>
+          </li>
+          <li><a routerLink="company"
+                 routerLinkActive="header-button-active"
+                 class="header-button"
+                 mat-ripple>company</a>
+          </li>
+          <li><a routerLink="support"
+                 routerLinkActive="header-button-active"
+                 class="header-button"
+                 mat-ripple>support</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

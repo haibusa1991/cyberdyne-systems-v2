@@ -1,0 +1,90 @@
+@use 'src/assets/styles/cyberdyne-palette' as pallette;
+@use 'src/assets/styles/responsive' as responsive;
+
+#content-wrapper {
+  height: 6.25rem;
+  background: map-get(pallette.$elements-palette, DARK-GRAY);
+}
+
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  width: map-get(responsive.$content-width, MOBILE);
+  margin: 0 auto;
+}
+
+@media screen and (width > map-get(responsive.$content-width, DESKTOP)) {
+  #header {
+    width: map-get(responsive.$content-width, DESKTOP);
+  }
+}
+
+@media screen and (width <= map-get(responsive.$content-width, DESKTOP)) {
+  #header {
+    width: map-get(responsive.$content-width, LAPTOP);
+  }
+}
+
+@media screen and (width <= map-get(responsive.$content-width, LAPTOP)) {
+  #header {
+    width: map-get(responsive.$content-width, TABLET);
+  }
+}
+
+@media screen and (width <= map-get(responsive.$content-width, TABLET)) {
+  #header {
+    width: map-get(responsive.$content-width, MOBILE);
+  }
+}
+
+@media screen and (width <= map-get(responsive.$content-width, MOBILE)) {
+  #header {
+    width: 100%;
+  }
+}
+
+
+#logo-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+
+  img {
+    display: inline-block;
+    margin-top: 0.5rem;
+    width: 8.5rem;
+  }
+
+  p {
+    display: inline-block;
+    position: absolute;
+    margin-top: 1rem;
+    vertical-align: middle;
+    font-family: Coda, sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    color: map-get(pallette.$elements-palette, WHITE);
+    line-height: 2rem;
+    transform: translateX(-2rem);
+  }
+}
+
+#full-nav {
+height: 100%;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    height: 100%;
+    align-content: center;
+
+    li {
+      //display: inline-block;
+      //padding: 1.6rem;
+    }
+  }
+}
+

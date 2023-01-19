@@ -3,10 +3,10 @@
 
 %base-header-button {
   display: inline-block;
-  width: 120px;
-  height: 40px;
+  width: 7.5rem;
+  height: 2.5rem;
   text-transform: uppercase;
-  line-height: 40px;
+  line-height: 2.5rem;
   text-align: center;
   text-decoration: none;
   font-family: GilroyBold, sans-serif;
@@ -28,20 +28,23 @@
   color: map-get(palette.$elements-palette, DARK-GRAY);
 }
 
-.header-button:hover {
-  //@extend %base-button-hover;
-  background-color: map-get(palette.$elements-palette, MEDIUM-GRAY);
-}
-
 .header-button-active {
   @extend %base-header-button;
   background-color: map-get(palette.$elements-palette, RED);
   color: map-get(palette.$elements-palette, WHITE);
 }
 
-.header-button-active:hover {
-  //@extend %base-button-hover;
-  background-color: map-get(palette.$elements-palette, DARK-RED);
+
+
+@media (any-hover: hover) {
+  .header-button:hover {
+    //@extend %base-button-hover;
+    background-color: map-get(palette.$elements-palette, MEDIUM-GRAY);
+  }
+
+  .header-button-active:hover {
+    //@extend %base-button-hover;
+    background-color: map-get(palette.$elements-palette, DARK-RED);
+  }
+
 }
-
-
