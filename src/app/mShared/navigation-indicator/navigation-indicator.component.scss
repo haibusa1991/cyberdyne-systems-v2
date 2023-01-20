@@ -1,0 +1,38 @@
+@use 'src/assets/styles/cyberdyne-palette' as pallette;
+@use 'src/assets/styles/responsive' as responsive;
+
+#nav-indicator {
+  position: fixed;
+  bottom: 1rem;
+  left: 50vw;
+  transform: translateX(-50%);
+  //width: 5rem;
+  background-color: rgba(map-get(pallette.$elements-palette, WHITE), 0.3);
+  padding: 0.75rem;
+  border-radius: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.indicator {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  color: map-get(pallette.$elements-palette, WHITE);
+  background-color: white;
+  //outline: 2px solid darkgray;
+  border-radius: 0.375rem;
+  transition: width ease-in-out 250ms;
+}
+
+.indicator-active {
+  width: 2rem;
+}
+
+@media screen and (width > map-get(responsive.$content-width, TABLET)) {
+  #nav-indicator {
+    display: none;
+  }
+}
+

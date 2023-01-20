@@ -3,7 +3,6 @@
 @import "src/assets/styles/constants";
 
 #content-wrapper {
-  //height: 6.25rem;
   height: $header-height;
   background: map-get(pallette.$elements-palette, DARK-GRAY);
 }
@@ -13,41 +12,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: center;
-  //width: map-get(responsive.$content-width, MOBILE);
   max-width: map-get(responsive.$content-width, DESKTOP);
   margin: 0 auto;
 }
-//
-//@media screen and (width > map-get(responsive.$content-width, DESKTOP)) {
-//  #header {
-//    width: map-get(responsive.$content-width, DESKTOP);
-//  }
-//}
-//
-//@media screen and (width <= map-get(responsive.$content-width, DESKTOP)) {
-//  #header {
-//    width: map-get(responsive.$content-width, LAPTOP);
-//  }
-//}
-//
-//@media screen and (width <= map-get(responsive.$content-width, LAPTOP)) {
-//  #header {
-//    width: map-get(responsive.$content-width, TABLET);
-//  }
-//}
-//
-//@media screen and (width <= map-get(responsive.$content-width, TABLET)) {
-//  #header {
-//    width: map-get(responsive.$content-width, MOBILE);
-//  }
-//}
-//
-//@media screen and (width <= map-get(responsive.$content-width, MOBILE)) {
-//  #header {
-//    width: 100%;
-//  }
-//}
-
 
 #logo-container {
   position: relative;
@@ -99,11 +66,14 @@ nav{
 #mobile-nav {
   display: none;
   margin-right: 2rem;
-  height: 3rem;
-  width: 3rem;
+  height: 3.5rem;
+  width: 3.5rem;
 
   svg {
     fill: map-get(pallette.$elements-palette, WHITE);
+    border: 1px solid map-get(pallette.$elements-palette, LIGHT-GRAY);
+    border-radius: 5px;
+    padding: 0.75rem;
   }
 }
 
