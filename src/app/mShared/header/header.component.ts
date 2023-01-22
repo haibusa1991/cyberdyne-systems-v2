@@ -1,10 +1,15 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {ViewSwipeService} from "../../core/view-swipe/view-swipe.service";
+import {toggleHamburgerMenu} from "../../animations";
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [
+    toggleHamburgerMenu
+  ]
 })
 
 export class HeaderComponent implements OnInit {
@@ -16,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   isHamburgerMenuVisible = false;
 
-  constructor() {
+  constructor(private viewSwipe: ViewSwipeService) {
   }
 
   ngOnInit(): void {
@@ -27,6 +32,8 @@ export class HeaderComponent implements OnInit {
     //     let activePage = (e as NavigationEnd).url;
     //     this.setActiveButton(activePage)
     //   });
+
+    this.viewSwipe.getSwipeStatus().subscribe(e => this.isHamburgerMenuVisible = !e);
   }
 
   setActiveButton(activePage: string) {
@@ -44,5 +51,14 @@ export class HeaderComponent implements OnInit {
 
   toggleHamburgerMenu() {
     this.isHamburgerMenuVisible = !this.isHamburgerMenuVisible;
+  }
+
+  hideHamburgerMenu() {
+    this.isHamburgerMenuVisible = false;
+  }
+
+  @HostListener('window:scroll',['$event'])
+  onScroll() {
+    this.isHamburgerMenuVisible = false;
   }
 }

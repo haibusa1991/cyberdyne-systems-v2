@@ -1,8 +1,10 @@
 <div id="app-wrapper">
-  <app-swipe-overlay></app-swipe-overlay>
   <app-header></app-header>
+  <app-swipe-overlay></app-swipe-overlay>
+<!--  todo swipe overlay disabled-->
   <div [@routeAnimations]="getRouterAnimationData()">
     <router-outlet></router-outlet>
   </div>
   <app-navigation-indicator></app-navigation-indicator>
+  <app-scroll-to-top></app-scroll-to-top>
 </div>

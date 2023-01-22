@@ -1,10 +1,14 @@
 @use 'src/assets/styles/cyberdyne-palette' as pallette;
 @use 'src/assets/styles/responsive' as responsive;
 @import "src/assets/styles/constants";
+@import "src/assets/styles/shadows";
 
 #content-wrapper {
   height: $header-height;
   background: map-get(pallette.$elements-palette, DARK-GRAY);
+  filter: drop-shadow(map-get($shadows, HEADER));
+  z-index: 10;
+  position: relative;
 }
 
 #header {
@@ -43,7 +47,7 @@
   }
 }
 
-nav{
+nav {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -84,18 +88,29 @@ nav{
 
   #mobile-nav {
     display: inline-block;
+    position: relative
   }
 }
 
 #hamburger-menu {
   position: fixed;
-  top: $header-height;
+  top: calc($header-height + 1rem);
   right: 0;
   background: map-get(pallette.$elements-palette, DARK-GRAY);
   border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  filter: drop-shadow(map-get($shadows, HAMBURGER-MENU));
 
   ul {
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li{
+      display: flex;
+    }
   }
+
 }
 

@@ -2,6 +2,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 import {navigationSequence} from "../../constants";
+import {ViewSwipeService} from "../../core/view-swipe/view-swipe.service";
 
 @Component({
   selector: 'app-swipe-overlay',
@@ -14,7 +15,8 @@ export class SwipeOverlayComponent implements OnInit {
 
   private currentRouteIndex!: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private viewSwipe: ViewSwipeService) {
   }
 
   ngOnInit(): void {
@@ -25,7 +27,6 @@ export class SwipeOverlayComponent implements OnInit {
       this.currentRouteIndex = navigationSequence.indexOf(url);
     });
   }
-
 
   private touchData = {
     startX: 0,
@@ -53,21 +54,21 @@ export class SwipeOverlayComponent implements OnInit {
 
   onSwipe() {
     if (
-      Math.abs(this.touchData.deltaX) > this.MIN_SWIPE_DISTANCE
-      && this.touchData.deltaTime < this.MAX_SWIPE_DURATION) {
-      this.touchData.deltaX > 0 ? this.navigateLeft() : this.navigateRight();
+      Math.abs(this.touchData.deltaX) < this.MIN_SWIPE_DISTANCE
+      || this.touchData.deltaTime > this.MAX_SWIPE_DURATION) {
+      return;
     }
-  }
 
-  navigateLeft() {
-    if (this.currentRouteIndex > 0) {
+    //navigate left
+    if (this.currentRouteIndex > 0 && this.touchData.deltaX > 0) {
       this.router.navigateByUrl(navigationSequence[this.currentRouteIndex - 1]);
+      this.viewSwipe.onSwipe();
     }
-  }
 
-  navigateRight() {
-    if (this.currentRouteIndex < navigationSequence.length - 1) {
+    //navigate navigate right
+    if (this.currentRouteIndex < navigationSequence.length - 1 && this.touchData.deltaX < 0) {
       this.router.navigateByUrl(navigationSequence[this.currentRouteIndex + 1]);
+      this.viewSwipe.onSwipe();
     }
   }
 }

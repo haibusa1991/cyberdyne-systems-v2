@@ -1,0 +1,48 @@
+@use 'src/assets/styles/cyberdyne-palette' as pallette;
+
+#button {
+  position: fixed;
+  bottom: 1vh;
+  right: 2vw;
+
+  div {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: rgba(map-get(pallette.$elements-palette, WHITE), 0.3);
+    //filter: opacity(0.3);
+    transition: scale ease-in-out 100ms;
+
+    svg {
+      display: block;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin: 0 auto;
+      transform: translateY(0.25rem);
+      fill: map-get(pallette.$elements-palette, WHITE);
+      transition: scale ease-in-out 100ms;
+    }
+  }
+
+  p {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: map-get(pallette.$elements-palette, WHITE);
+  }
+}
+
+@media (any-hover: hover) {
+  #button:hover {
+    cursor: pointer;
+    div {
+      scale: 1.1;
+
+      svg {
+        scale: 1.1;
+      }
+    }
+  }
+}

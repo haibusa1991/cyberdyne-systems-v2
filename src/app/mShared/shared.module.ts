@@ -12,6 +12,7 @@ import { LoadingSpinnerComponentComponent } from './loading-spinner-component/lo
 import {MatRippleModule} from "@angular/material/core";
 import { SwipeOverlayComponent } from './swipe-overlay/swipe-overlay.component';
 import { NavigationIndicatorComponent } from './navigation-indicator/navigation-indicator.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NavigationIndicatorComponent } from './navigation-indicator/navigation-
     LoadingSpinnerOverlayComponent,
     LoadingSpinnerComponentComponent,
     SwipeOverlayComponent,
-    NavigationIndicatorComponent
+    NavigationIndicatorComponent,
+    ScrollToTopComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { NavigationIndicatorComponent } from './navigation-indicator/navigation-
         LoadingSpinnerComponentComponent,
         SwipeOverlayComponent,
         NavigationIndicatorComponent,
+        ScrollToTopComponent,
     ]
 })
 export class SharedModule { }
