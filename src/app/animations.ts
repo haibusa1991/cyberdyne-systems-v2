@@ -92,7 +92,7 @@ export const toggleHamburgerMenu =
     'right': '-180px'
   })),
   transition('* => *', [
-    animate('125ms')
+    animate('200ms')
   ])
 ]);
 

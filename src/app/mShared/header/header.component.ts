@@ -51,6 +51,7 @@ export class HeaderComponent implements OnInit {
 
   toggleHamburgerMenu() {
     this.isHamburgerMenuVisible = !this.isHamburgerMenuVisible;
+    // this.viewSwipe.onSwipe();
   }
 
   hideHamburgerMenu() {

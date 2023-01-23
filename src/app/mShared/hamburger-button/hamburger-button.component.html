@@ -1,0 +1,7 @@
+<div class="frame" (click)="onClick()">
+  <div class="buns" [@hamburgerBuns] = "isActive? 'open' : 'closed'">
+    <div class="top-bun line" [@topBun] = "isActive? 'open' : 'closed'"></div>
+    <div class="steak line" [@steak] = "isActive? 'open' : 'closed'"></div>
+    <div class="bottom-bun line" [@bottomBun] = "isActive? 'open' : 'closed'"></div>
+  </div>
+</div>

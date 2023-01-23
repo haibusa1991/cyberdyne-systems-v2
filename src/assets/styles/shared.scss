@@ -54,6 +54,10 @@ h3 {
   z-index: 100;
 }
 
+.always-on-top {
+  z-index: 1000;
+}
+
 html {
   scroll-behavior: smooth;
 }

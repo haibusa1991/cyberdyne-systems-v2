@@ -13,6 +13,7 @@ import {MatRippleModule} from "@angular/material/core";
 import { SwipeOverlayComponent } from './swipe-overlay/swipe-overlay.component';
 import { NavigationIndicatorComponent } from './navigation-indicator/navigation-indicator.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { HamburgerButtonComponent } from './hamburger-button/hamburger-button.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     LoadingSpinnerComponentComponent,
     SwipeOverlayComponent,
     NavigationIndicatorComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    HamburgerButtonComponent
   ],
   imports: [
     CommonModule,
