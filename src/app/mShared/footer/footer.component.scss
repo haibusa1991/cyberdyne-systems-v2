@@ -1,9 +1,77 @@
-p {
-  display: block;
-  height: 150px;
-  width: 100%;
-  color: white;
-  text-align: center;
-  font-size: 24px;
-  background-color: darkgray;
+@use 'src/assets/styles/cyberdyne-palette' as pallette;
+@use 'src/assets/styles/responsive' as responsive;
+@import "src/assets/styles/constants";
+
+footer {
+  background-color: map-get(pallette.$elements-palette, DARK-GRAY);
+  height: $footer-height;
+  position: relative;
+
+  img {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.5rem;
+    position: absolute;
+    width: 13rem;
+  }
+
+  p.copyright {
+    text-align: center;
+    margin-top: 1rem;
+    color: map-get(pallette.$elements-palette, WHITE);
+    font-size: 0.75rem;
+  }
+
+  div.separation-line {
+    content: "";
+    width: 40%;
+    height: 3px;
+    background-color: map-get(pallette.$elements-palette, WHITE);
+
+  }
+
+  div.separation-line-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: map-get(responsive.$content-width, DESKTOP);
+    margin: 0.5rem auto 0;
+  }
 }
+
+.footer-info-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: map-get(responsive.$content-width, DESKTOP);
+  margin: 0 auto;
+}
+
+.tile-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-tile {
+  min-width: 13rem;
+  width: 13rem;
+  //max-width:12rem;
+
+  h4 {
+    color: map-get(pallette.$elements-palette, WHITE);
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
+
+  p {
+    color: map-get(pallette.$elements-palette, WHITE);
+    text-align: center;
+    font-size: 0.75rem;
+  }
+}
+

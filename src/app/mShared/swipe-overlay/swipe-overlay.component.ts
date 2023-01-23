@@ -71,5 +71,9 @@ export class SwipeOverlayComponent implements OnInit {
       this.viewSwipe.onSwipe();
     }
   }
+
+  onClick() {
+    this.viewSwipe.onSwipe();
+  }
 }
 
